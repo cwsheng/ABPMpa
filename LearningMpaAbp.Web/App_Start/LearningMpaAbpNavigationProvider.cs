@@ -55,6 +55,9 @@ namespace LearningMpaAbp.Web
                         url: "About",
                         icon: "info"
                     )
+                ).AddItem(
+                new MenuItemDefinition(
+                    PageNames.Tasks, L("Tasks"), icon: "info", url: "Tasks/Index", requiresAuthentication: true)
                 ).AddItem( //Menu items below is just for demonstration!
                     new MenuItemDefinition(
                         "MultiLevelMenu",

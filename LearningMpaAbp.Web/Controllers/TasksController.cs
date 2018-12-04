@@ -16,7 +16,7 @@ using System.Web.Mvc;
 namespace LearningMpaAbp.Web.Controllers
 {
     [AbpMvcAuthorize]
-    public class TasksController : AbpController
+    public class TasksController : LearningMpaAbpControllerBase
     {
         private readonly ITaskAppService _taskAppService;
         private readonly IUserAppService _userAppService;
@@ -29,8 +29,9 @@ namespace LearningMpaAbp.Web.Controllers
             _cacheManager = cacheManager;
             //_notificationAppService = notificationAppService;
         }
-        public ActionResult Index(GetTasksInput input)
+        public ActionResult Index()
         {
+            GetTasksInput input = new GetTasksInput() { };
             var output = _taskAppService.GetTasks(input);
 
             var model = new IndexViewModel(output.Tasks)
